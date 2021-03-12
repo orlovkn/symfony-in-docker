@@ -6,30 +6,11 @@ docker-compose up --build -d
 cd app
 ```
 
-Чтобы войти в любой из контейнеров, делаем следующее:
-```
-docker exec -it <container_name> bash
-```
-
-show running containers
-```
-docker ps
-```
-stop all containers
-```
-docker stop $(docker ps -qa)
-```
-
-Логи контейнера:
-```
-docker logs <container_name>
-```
-
 ### Установка Symfony
 
-Зайти в контейнер с php-cli:
+Зайти в контейнер с php:
 ```
-docker exec -it symfony-app-php-cli bash
+docker exec -it symfony-app-php bash
 ```
 
 Выполнить команду

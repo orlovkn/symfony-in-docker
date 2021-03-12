@@ -11,13 +11,13 @@ services:
     ports:
       - "8081:80"
 
-  php-cli:
+  php:
     build:
-      context: ./docker/php-cli
+      context: ./docker/php
     volumes:
       - ./app:/symfony
     command: sleep 10000
-    container_name: ${PROJECT_NAME}-php-cli
+    container_name: ${PROJECT_NAME}-php
     depends_on:
       - mysql
 
