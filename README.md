@@ -1,10 +1,9 @@
-### Запуск проекта
-
+## Installation
+Launch the docker
 ```
 cp .env.test .env
 docker-compose up --build -d
 cd app
-cp .env.test .env
 ```
 
 Чтобы войти в любой из контейнеров, делаем следующее:
@@ -12,9 +11,13 @@ cp .env.test .env
 docker exec -it <container_name> bash
 ```
 
-Посмотреть запущенные контейнеры:
+show running containers
 ```
 docker ps
+```
+stop all containers
+```
+docker stop $(docker ps -qa)
 ```
 
 Логи контейнера:
@@ -24,7 +27,7 @@ docker logs <container_name>
 
 ### Установка Symfony
 
-Зайти в контейнер с php-cli: 
+Зайти в контейнер с php-cli:
 ```
 docker exec -it symfony-app-php-cli bash
 ```
@@ -35,14 +38,12 @@ composer create-project symfony/website-skeleton app
 ```
 
 После установки выполнить команды, чтобы избавиться от вложенности папок:
-
 ```
 mv /symfony/app/* /symfony
-mv /symfony/app/.* /symfony
 rm -Rf app
 ```
 
-Открыть приложение
+run server and app
 ```
-localhost:8081
+php -S localhost:8081
 ```
