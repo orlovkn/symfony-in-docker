@@ -1,30 +1,29 @@
-## Installation
-Launch the docker
+Symfony Clean Template
+===
+
+### build project
 ```
-cp .env.test .env
 docker-compose up --build -d
-cd app
 ```
 
-### Установка Symfony
-
-Зайти в контейнер с php:
+### enter into php container
 ```
-docker exec -it symfony-app-php bash
+docker exec -it symfony-app-php-cli bash
 ```
 
-Выполнить команду
+### install Symfony
 ```
 composer create-project symfony/website-skeleton app
 ```
 
-После установки выполнить команды, чтобы избавиться от вложенности папок:
+### afterinstallation enter all these commands
 ```
 mv /symfony/app/* /symfony
+mv /symfony/app/.* /symfony
 rm -Rf app
 ```
 
-run server and app
+### run server and app
 ```
 php -S localhost:8081
 ```

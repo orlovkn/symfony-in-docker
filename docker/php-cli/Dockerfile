@@ -5,9 +5,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     zlib1g-dev \
     libmcrypt-dev \
-    libzip-dev \
-    nodejs \
-    npm
+    libzip-dev
 
 RUN docker-php-ext-install pdo pdo_mysql mysqli zip
 

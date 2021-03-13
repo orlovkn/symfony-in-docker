@@ -11,15 +11,23 @@ services:
     ports:
       - "8081:80"
 
-  php:
+  php-fpm:
     build:
-      context: ./docker/php
+      context: ./docker/php-fpm
+    volumes:
+      - ./app:/symfony
+    restart: always
+    container_name: ${PROJECT_NAME}-php-fpm
+    depends_on:
+      - mysql
+
+  php-cli:
+    build:
+      context: ./docker/php-cli
     volumes:
       - ./app:/symfony
     command: sleep 10000
-    container_name: ${PROJECT_NAME}-php
-    depends_on:
-      - mysql
+    container_name: ${PROJECT_NAME}-php-cli
 
   mysql:
     image: mysql:8.0
